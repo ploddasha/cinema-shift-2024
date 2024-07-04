@@ -11,7 +11,12 @@ class FilmPosterRepositoryImpl(
 ) : FilmPosterRepository {
 
     override suspend fun getAll(): List<FilmItem> {
-        val models = filmPosterApi.getAll()
-        return models.map { filmItemConverter.convert(it) }
+        val response = filmPosterApi.getAll()
+        return if (response.success) {
+            response.films.map { filmItemConverter.convert(it) }
+        } else {
+            // TODO Обработка ошибки
+            emptyList()
+        }
     }
 }

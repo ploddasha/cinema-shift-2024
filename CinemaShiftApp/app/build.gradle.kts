@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -35,12 +37,13 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+        languageVersion = "1.9"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.5.0"
     }
     packaging {
         resources {
@@ -66,9 +69,11 @@ dependencies {
 
     // Работа с сетью
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
+    implementation("com.google.code.gson:gson:2.9.1")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     // Unit-тестирование
     testImplementation("junit:junit:4.13.2")
@@ -82,4 +87,6 @@ dependencies {
 
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
 }

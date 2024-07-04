@@ -10,37 +10,31 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.ploddasha.cinemashiftapp.poster.data.converter.FilmItemConverter
+import com.ploddasha.cinemashiftapp.poster.data.network.FilmPosterApi
+import com.ploddasha.cinemashiftapp.poster.data.repository.FilmPosterRepositoryImpl
+import com.ploddasha.cinemashiftapp.poster.domain.GetFilmPosterUseCase
+import com.ploddasha.cinemashiftapp.poster.domain.repository.FilmPosterRepository
+import com.ploddasha.cinemashiftapp.poster.ui.FilmPosterScreen
 import com.ploddasha.cinemashiftapp.ui.theme.CinemaShiftAppTheme
 
 class MainActivity : ComponentActivity() {
+    private val networkModule = NetworkModule()
+
+    private val filmPosterApi = networkModule.retrofit.create(FilmPosterApi::class.java)
+    private val filmItemConverter = FilmItemConverter()
+    private val filmPosterRepository: FilmPosterRepository = FilmPosterRepositoryImpl(filmPosterApi, filmItemConverter)
+    private val getFilmPosterUseCase = GetFilmPosterUseCase(filmPosterRepository)
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             CinemaShiftAppTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+                MainScreen(
+                    getFilmPosterUseCase = getFilmPosterUseCase
+                )
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CinemaShiftAppTheme {
-        Greeting("Android")
     }
 }

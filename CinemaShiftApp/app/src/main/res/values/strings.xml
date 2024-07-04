@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">CinemaShiftApp</string>
+
+    <!-- Film Poster-->
+    <string name="film_poster_title">Афиша</string>
+    <string name="error_unknown_error">Неизвестная ошибка</string>
+    <string name="error_title">Ошибка</string>
+    <string name="error_try_again">Попробуйте еще раз</string>
+    <string name="more_details">Подробнее</string>
+
 </resources>
