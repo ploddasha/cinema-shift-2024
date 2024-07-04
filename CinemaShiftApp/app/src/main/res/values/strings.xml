@@ -7,5 +7,6 @@
     <string name="error_title">Ошибка</string>
     <string name="error_try_again">Попробуйте еще раз</string>
     <string name="more_details">Подробнее</string>
+    <string name="film_image">Постер к фильму</string>
 
 </resources>

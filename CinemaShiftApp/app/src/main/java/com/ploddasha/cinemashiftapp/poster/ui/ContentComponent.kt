@@ -17,9 +17,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.ploddasha.cinemashiftapp.R
 import com.ploddasha.cinemashiftapp.poster.domain.entity.FilmItem
 
@@ -47,6 +51,7 @@ private fun FilmItemView(
             .padding(vertical = 8.dp, horizontal = 16.dp)
     ) {
         //Image
+        FilmImageCard(image = item.img)
         Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = "${item.name} (${item.ageRating})",
