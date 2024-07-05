@@ -5,5 +5,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ScheduleModel(
     val date: String,
-    val seanceModels: List<SeanceModel>
+    val seances: List<SeanceModel>
 )

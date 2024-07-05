@@ -1,4 +1,4 @@
-package com.ploddasha.cinemashiftapp.film.ui
+package com.ploddasha.cinemashiftapp.schedule.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,16 +15,18 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.ploddasha.cinemashiftapp.R
 import com.ploddasha.cinemashiftapp.film.presentation.FilmState
-import com.ploddasha.cinemashiftapp.film.presentation.FilmViewModel
+import com.ploddasha.cinemashiftapp.schedule.presentation.ScheduleState
+import com.ploddasha.cinemashiftapp.schedule.presentation.ScheduleViewModel
+
 
 @Composable
-fun FilmScreen(
-    filmViewModel: FilmViewModel
-) {
-    val filmState by filmViewModel.state.collectAsState()
+fun ScheduleScreen(
+    scheduleViewModel: ScheduleViewModel
+){
+    val scheduleState by scheduleViewModel.state.collectAsState()
 
     LaunchedEffect(Unit) {
-        filmViewModel.loadFilm()
+        scheduleViewModel.loadSchedule()
     }
 
     Column(modifier = Modifier.fillMaxSize()) {
@@ -32,32 +34,26 @@ fun FilmScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 12.dp, horizontal = 8.dp),
-            text = stringResource(id = R.string.film_poster_title),
+            text = stringResource(id = R.string.schedule_title),
             style = MaterialTheme.typography.titleLarge,
         )
 
-        when (val state = filmState) {
-            is FilmState.Initial,
-            is FilmState.Loading -> LoadingComponent()
+        when (val state = scheduleState) {
+            is ScheduleState.Initial,
+            is ScheduleState.Loading -> com.ploddasha.cinemashiftapp.film.ui.LoadingComponent()
 
-            is FilmState.Failure -> ErrorComponent(
+            is ScheduleState.Failure -> com.ploddasha.cinemashiftapp.film.ui.ErrorComponent(
                 message = state.message ?: stringResource(id = R.string.error_unknown_error),
-                onRetry = { filmViewModel.loadFilm() },
+                onRetry = { scheduleViewModel.loadSchedule() },
             )
 
-            is FilmState.Content -> {
-                if (state.film != null) {
-                    ContentComponent(
-                        film = state.film,
-                        onItemClicked = filmViewModel::openRouter
-                    )
-                } else {
-                    ErrorComponent(
-                        message = stringResource(id = R.string.error_film_not_found),
-                        onRetry = { filmViewModel.loadFilm() },
-                    )
-                }
+            is ScheduleState.Content -> {
+                ContentComponent(
+                    schedules = state.schedule
+                )
+
             }
         }
     }
+
 }

@@ -23,7 +23,8 @@ import com.ploddasha.cinemashiftapp.film.domain.entity.Film
 
 @Composable
 fun ContentComponent(
-    film: Film
+    film: Film,
+    onItemClicked: (filmId: String) -> Unit
 ) {
     LazyColumn(
         modifier = Modifier
@@ -64,7 +65,7 @@ fun ContentComponent(
             )
             Spacer(modifier = Modifier.height(8.dp))
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { onItemClicked(film.id) },
                 modifier = Modifier
                     .fillMaxWidth(),
             ) {

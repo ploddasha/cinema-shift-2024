@@ -5,5 +5,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class HallModel(
     val name: String,
-    val placeModels: List<List<PlaceModel>>
+    val places: List<List<PlaceModel>>
 )

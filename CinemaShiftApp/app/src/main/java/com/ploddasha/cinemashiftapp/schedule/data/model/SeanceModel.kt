@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class SeanceModel(
     val time: String,
-    val hallModel: HallModel,
-    val payedTicketModels: List<PayedTicketModel>
+    val hall: HallModel,
+    val payedTickets: List<PayedTicketModel>
 )
 

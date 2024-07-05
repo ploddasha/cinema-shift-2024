@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -34,6 +33,8 @@ import com.ploddasha.cinemashiftapp.main.presentation.NavigationOption
 import com.ploddasha.cinemashiftapp.navigation.NavControllerHolder
 import com.ploddasha.cinemashiftapp.poster.FilmPosterRoute
 import com.ploddasha.cinemashiftapp.poster.ui.FilmPosterScreen
+import com.ploddasha.cinemashiftapp.schedule.ScheduleRoute
+import com.ploddasha.cinemashiftapp.schedule.ui.ScheduleScreen
 import org.koin.androidx.compose.koinViewModel
 import org.koin.compose.koinInject
 import org.koin.core.parameter.parametersOf
@@ -77,6 +78,12 @@ fun MainScreen() {
                     val destination = it.toRoute<FilmRoute>()
                     FilmScreen(
                         filmViewModel = koinViewModel { parametersOf(destination.filmId) },
+                    )
+                }
+                animatedComposable<ScheduleRoute> {
+                    val destination = it.toRoute<ScheduleRoute>()
+                    ScheduleScreen(
+                        scheduleViewModel = koinViewModel { parametersOf(destination.filmId) },
                     )
                 }
             }
