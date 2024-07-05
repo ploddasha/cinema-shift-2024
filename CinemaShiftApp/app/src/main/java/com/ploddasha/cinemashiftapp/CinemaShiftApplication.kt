@@ -1,6 +1,7 @@
 package com.ploddasha.cinemashiftapp
 
 import android.app.Application
+import com.ploddasha.cinemashiftapp.film.di.filmViewModel
 import com.ploddasha.cinemashiftapp.main.di.mainModule
 import com.ploddasha.cinemashiftapp.navigation.navigationModule
 import com.ploddasha.cinemashiftapp.poster.di.filmPosterModule
@@ -21,7 +22,8 @@ class CinemaShiftApplication : Application() {
                 networkModule,
                 navigationModule,
                 mainModule,
-                filmPosterModule
+                filmPosterModule,
+                filmViewModel
             )
         }
     }

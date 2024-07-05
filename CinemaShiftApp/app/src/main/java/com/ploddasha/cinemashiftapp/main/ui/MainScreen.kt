@@ -27,6 +27,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.ploddasha.cinemashiftapp.R
+import com.ploddasha.cinemashiftapp.film.FilmRoute
+import com.ploddasha.cinemashiftapp.film.ui.FilmScreen
 import com.ploddasha.cinemashiftapp.main.presentation.MainViewModel
 import com.ploddasha.cinemashiftapp.main.presentation.NavigationOption
 import com.ploddasha.cinemashiftapp.navigation.NavControllerHolder
@@ -34,6 +36,7 @@ import com.ploddasha.cinemashiftapp.poster.FilmPosterRoute
 import com.ploddasha.cinemashiftapp.poster.ui.FilmPosterScreen
 import org.koin.androidx.compose.koinViewModel
 import org.koin.compose.koinInject
+import org.koin.core.parameter.parametersOf
 
 
 @Composable
@@ -68,6 +71,12 @@ fun MainScreen() {
                 animatedComposable<FilmPosterRoute> {
                     FilmPosterScreen(
                         filmPosterViewModel = koinViewModel(),
+                    )
+                }
+                animatedComposable<FilmRoute> {
+                    val destination = it.toRoute<FilmRoute>()
+                    FilmScreen(
+                        filmViewModel = koinViewModel { parametersOf(destination.filmId) },
                     )
                 }
             }

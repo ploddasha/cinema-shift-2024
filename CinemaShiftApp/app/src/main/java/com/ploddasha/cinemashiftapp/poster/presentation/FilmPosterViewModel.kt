@@ -23,8 +23,8 @@ class FilmPosterViewModel(
             _state.value = FilmPosterState.Loading
 
             try {
-                val loans = getFilmPosterUseCase()
-                _state.value = FilmPosterState.Content(loans)
+                val film = getFilmPosterUseCase()
+                _state.value = FilmPosterState.Content(film)
             } catch (ce: CancellationException) {
                 throw ce
             } catch (ex: Exception) {
@@ -33,8 +33,8 @@ class FilmPosterViewModel(
         }
     }
 
-    /*
-    fun openFilm(filmId: Long) {
+
+    fun openRouter(filmId: String) {
         router.openFilm(filmId)
-    } */
+    }
 }

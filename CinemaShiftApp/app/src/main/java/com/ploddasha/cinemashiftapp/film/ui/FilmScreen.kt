@@ -1,4 +1,4 @@
-package com.ploddasha.cinemashiftapp.poster.ui
+package com.ploddasha.cinemashiftapp.film.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,17 +14,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.ploddasha.cinemashiftapp.R
-import com.ploddasha.cinemashiftapp.poster.presentation.FilmPosterState
-import com.ploddasha.cinemashiftapp.poster.presentation.FilmPosterViewModel
+import com.ploddasha.cinemashiftapp.film.presentation.FilmState
+import com.ploddasha.cinemashiftapp.film.presentation.FilmViewModel
 
 @Composable
-fun FilmPosterScreen(
-    filmPosterViewModel: FilmPosterViewModel
+fun FilmScreen(
+    filmViewModel: FilmViewModel
 ) {
-    val filmPosterState by filmPosterViewModel.state.collectAsState()
+    val filmPosterState by filmViewModel.state.collectAsState()
 
     LaunchedEffect(Unit) {
-        filmPosterViewModel.loadFilms()
+        filmViewModel.loadFilm()
     }
 
     Column(modifier = Modifier.fillMaxSize()) {
@@ -37,18 +37,24 @@ fun FilmPosterScreen(
         )
 
         when (val state = filmPosterState) {
-            is FilmPosterState.Initial,
-            is FilmPosterState.Loading -> LoadingComponent()
+            is FilmState.Initial,
+            is FilmState.Loading -> LoadingComponent()
 
-            is FilmPosterState.Failure -> ErrorComponent(
+            is FilmState.Failure -> ErrorComponent(
                 message = state.message ?: stringResource(id = R.string.error_unknown_error),
-                onRetry = { filmPosterViewModel.loadFilms() },
+                onRetry = { filmViewModel.loadFilm() },
             )
 
-            is FilmPosterState.Content -> ContentComponent(
-                films = state.films,
-                onItemClicked = filmPosterViewModel::openRouter
-            )
+            is FilmState.Content -> {
+                if (state.film != null) {
+                    ContentComponent(film = state.film)
+                } else {
+                    ErrorComponent(
+                        message = stringResource(id = R.string.error_film_not_found),
+                        onRetry = { filmViewModel.loadFilm() },
+                    )
+                }
+            }
         }
     }
 }

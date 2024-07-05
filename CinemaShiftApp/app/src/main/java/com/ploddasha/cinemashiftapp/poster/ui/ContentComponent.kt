@@ -29,12 +29,14 @@ import com.ploddasha.cinemashiftapp.poster.domain.entity.FilmItem
 
 @Composable
 fun ContentComponent(
-    films: List<FilmItem>
+    films: List<FilmItem>,
+    onItemClicked: (filmId: String) -> Unit
 ) {
     LazyColumn(modifier = Modifier.fillMaxHeight()) {
         items(films) { film ->
             FilmItemView(
-                film
+                film,
+                onItemClicked = { onItemClicked(film.id) }
             )
         }
     }
@@ -42,12 +44,13 @@ fun ContentComponent(
 
 @Composable
 private fun FilmItemView(
-    item: FilmItem
+    item: FilmItem,
+    onItemClicked: () -> Unit
 ) {
     Column (
         Modifier
             .fillMaxWidth()
-            .clickable(onClick = { })
+            .clickable(onClick = onItemClicked)
             .padding(vertical = 8.dp, horizontal = 16.dp)
     ) {
         //Image

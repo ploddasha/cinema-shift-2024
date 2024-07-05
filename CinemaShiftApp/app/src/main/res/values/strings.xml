@@ -11,5 +11,7 @@
     <string name="bottom_bar_poster">Афиша</string>
     <string name="bottom_bar_tickets">Билеты</string>
     <string name="bottom_bar_profile">Профиль</string>
+    <string name="error_film_not_found">Ошибка. Фильм не найден</string>
+    <string name="see_schedule">Посмотреть расписание</string>
 
 </resources>
