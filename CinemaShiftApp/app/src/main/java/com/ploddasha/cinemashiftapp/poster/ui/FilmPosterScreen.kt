@@ -46,7 +46,8 @@ fun FilmPosterScreen(
             )
 
             is FilmPosterState.Content -> ContentComponent(
-                films = state.films
+                films = state.films,
+                //onItemClicked = filmPosterViewModel::openRouter
             )
         }
     }

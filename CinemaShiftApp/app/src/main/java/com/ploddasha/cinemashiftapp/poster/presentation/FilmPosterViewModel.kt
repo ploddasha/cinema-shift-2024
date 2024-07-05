@@ -10,11 +10,15 @@ import kotlinx.coroutines.launch
 
 class FilmPosterViewModel(
     private val getFilmPosterUseCase: GetFilmPosterUseCase,
+    private val router: FilmPosterRouter
 ): ViewModel() {
     private val _state = MutableStateFlow<FilmPosterState>(FilmPosterState.Initial)
     val state: StateFlow<FilmPosterState> = _state
 
     fun loadFilms() {
+        if (_state.value is FilmPosterState.Content || _state.value is FilmPosterState.Loading) {
+            return
+        }
         viewModelScope.launch {
             _state.value = FilmPosterState.Loading
 
@@ -29,4 +33,8 @@ class FilmPosterViewModel(
         }
     }
 
+    /*
+    fun openFilm(filmId: Long) {
+        router.openFilm(filmId)
+    } */
 }

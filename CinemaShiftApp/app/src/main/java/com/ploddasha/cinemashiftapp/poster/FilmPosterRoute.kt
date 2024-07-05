@@ -1,4 +1,4 @@
-package com.ploddasha.cinemashiftapp.poster.presentation
+package com.ploddasha.cinemashiftapp.poster
 
 import kotlinx.serialization.Serializable
 

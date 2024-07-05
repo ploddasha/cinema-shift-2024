@@ -8,5 +8,8 @@
     <string name="error_try_again">Попробуйте еще раз</string>
     <string name="more_details">Подробнее</string>
     <string name="film_image">Постер к фильму</string>
+    <string name="bottom_bar_poster">Афиша</string>
+    <string name="bottom_bar_tickets">Билеты</string>
+    <string name="bottom_bar_profile">Профиль</string>
 
 </resources>
