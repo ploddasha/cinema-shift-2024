@@ -1,4 +1,4 @@
-package com.ploddasha.cinemashiftapp.poster.data.model
+package com.ploddasha.cinemashiftapp.common.data.model.film
 
 import kotlinx.serialization.Serializable
 

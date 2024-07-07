@@ -49,7 +49,7 @@ fun FilmScreen(
                 if (state.film != null) {
                     ContentComponent(
                         film = state.film,
-                        onItemClicked = filmViewModel::openRouter
+                        onItemClicked = filmViewModel::openSchedule
                     )
                 } else {
                     ErrorComponent(

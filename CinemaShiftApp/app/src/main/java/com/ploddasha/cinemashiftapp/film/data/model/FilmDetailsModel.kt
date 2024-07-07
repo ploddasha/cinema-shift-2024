@@ -1,5 +1,9 @@
 package com.ploddasha.cinemashiftapp.film.data.model
 
+import com.ploddasha.cinemashiftapp.common.data.model.film.ActorItemModel
+import com.ploddasha.cinemashiftapp.common.data.model.film.CountryItemModel
+import com.ploddasha.cinemashiftapp.common.data.model.film.DirectorItemModel
+import com.ploddasha.cinemashiftapp.common.data.model.film.UserRatingsItemModel
 import kotlinx.serialization.Serializable
 
 

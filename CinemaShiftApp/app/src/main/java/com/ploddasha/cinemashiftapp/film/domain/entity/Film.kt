@@ -1,5 +1,10 @@
 package com.ploddasha.cinemashiftapp.film.domain.entity
 
+import com.ploddasha.cinemashiftapp.common.domain.entity.film.ActorItem
+import com.ploddasha.cinemashiftapp.common.domain.entity.film.CountryItem
+import com.ploddasha.cinemashiftapp.common.domain.entity.film.DirectorItem
+import com.ploddasha.cinemashiftapp.common.domain.entity.film.UserRatingsItem
+
 data class Film(
     val id: String,
     val name: String,

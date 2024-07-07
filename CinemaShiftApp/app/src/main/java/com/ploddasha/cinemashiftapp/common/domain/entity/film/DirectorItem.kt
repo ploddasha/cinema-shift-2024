@@ -1,4 +1,4 @@
-package com.ploddasha.cinemashiftapp.film.domain.entity
+package com.ploddasha.cinemashiftapp.common.domain.entity.film
 
 data class DirectorItem(
     val id: String,

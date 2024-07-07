@@ -40,7 +40,7 @@ class FilmViewModel(
         router.goBack()
     }
 
-    fun openRouter(filmId: String) {
+    fun openSchedule(filmId: String) {
         router.openSchedule(filmId)
     }
 }

@@ -1,4 +1,4 @@
-package com.ploddasha.cinemashiftapp.poster.domain.entity
+package com.ploddasha.cinemashiftapp.common.domain.entity.film
 
 
 data class ActorItem(
