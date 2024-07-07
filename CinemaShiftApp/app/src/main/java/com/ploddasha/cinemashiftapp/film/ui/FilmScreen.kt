@@ -32,7 +32,7 @@ fun FilmScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 12.dp, horizontal = 8.dp),
-            text = stringResource(id = R.string.film_poster_title),
+            text = stringResource(id = R.string.film_details_title),
             style = MaterialTheme.typography.titleLarge,
         )
 

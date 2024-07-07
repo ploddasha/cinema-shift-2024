@@ -32,7 +32,9 @@ fun ContentComponent(
             onDateSelected = { date -> selectedDate = date }
         )
         val selectedSchedule = schedules.find { it.date == selectedDate }
-        SelectedDateContentComponent(schedule = selectedSchedule)
+        selectedSchedule?.let {
+            SelectedDateContentComponent(schedule = it)
+        }
     }
 
 }

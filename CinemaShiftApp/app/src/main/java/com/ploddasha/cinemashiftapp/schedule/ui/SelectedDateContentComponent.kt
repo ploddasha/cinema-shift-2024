@@ -13,34 +13,37 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.ploddasha.cinemashiftapp.schedule.domain.entity.ScheduleItem
 
 @Composable
-fun SelectedDateContentComponent(schedule: ScheduleItem?) {
-    schedule?.let {
-        Column {
-            schedule.seances.groupBy { it.hall.name }.forEach { (hallName, seances) ->
-                Text(
-                    text = hallName,
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(8.dp)
-                )
-                LazyVerticalGrid(
-                    columns = GridCells.Fixed(3),
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    items(seances) { seance ->
-                        Button(onClick = { /* TODO Handle click */ }) {
-                            Text(text = seance.time)
-                        }
+fun SelectedDateContentComponent(schedule: ScheduleItem) {
+    val groupedSeances = remember(schedule.seances) {
+        schedule.seances.groupBy { it.hall.name }
+    }
+
+    Column {
+        groupedSeances.forEach { (hallName, seances) ->
+            Text(
+                text = hallName,
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(8.dp)
+            )
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(3),
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                items(seances) { seance ->
+                    Button(onClick = { /* TODO Handle click */ }) {
+                        Text(text = seance.time)
                     }
                 }
-                Spacer(modifier = Modifier.height(8.dp))
             }
+            Spacer(modifier = Modifier.height(8.dp))
         }
     }
 }

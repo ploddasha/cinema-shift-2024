@@ -14,5 +14,6 @@
     <string name="error_film_not_found">Ошибка. Фильм не найден</string>
     <string name="see_schedule">Посмотреть расписание</string>
     <string name="schedule_title">Расписание</string>
+    <string name="film_details_title">Сведения о фильме</string>
 
 </resources>
