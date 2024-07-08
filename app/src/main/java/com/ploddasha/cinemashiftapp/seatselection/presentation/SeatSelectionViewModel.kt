@@ -24,21 +24,40 @@ class SeatSelectionViewModel(
     )
     val places: StateFlow<List<List<PlaceItem>>> = _places
 
-    private val _selectedRow = MutableStateFlow(0)
-    val selectedRow: StateFlow<Int> = _selectedRow
+    private val _selectedRows = MutableStateFlow(listOf(0))
+    val selectedRows: StateFlow<List<Int>> = _selectedRows
 
-    private val _selectedSeat = MutableStateFlow(0)
-    val selectedSeat: StateFlow<Int> = _selectedSeat
+    private val _selectedSeats = MutableStateFlow(listOf(0))
+    val selectedSeats: StateFlow<List<Int>> = _selectedSeats
 
-    fun selectRow(row: Int) {
-        _selectedRow.update { row }
+    fun addTicket() {
+        _selectedRows.update { it + 0 }
+        _selectedSeats.update { it + 0 }
     }
 
-    fun selectSeat(seat: Int) {
-        _selectedSeat.update { seat }
+    fun selectRow(index: Int, row: Int) {
+        _selectedRows.update { rows ->
+            rows.toMutableList().also { it[index] = row }
+        }
     }
 
+    fun selectSeat(index: Int, seat: Int) {
+        _selectedSeats.update { seats ->
+            seats.toMutableList().also { it[index] = seat }
+        }
+    }
 
+    fun removeTicket(index: Int) {
+        _selectedRows.update { rows ->
+            rows.toMutableList().apply { removeAt(index) }
+        }
+        _selectedSeats.update { seats ->
+            seats.toMutableList().apply { removeAt(index) }
+        }
+    }
+
+    fun continueBooking() {
+    }
 
 
 }

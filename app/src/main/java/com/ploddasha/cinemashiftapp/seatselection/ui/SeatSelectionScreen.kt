@@ -20,8 +20,8 @@ fun SeatSelectionScreen(
     seatSelectionViewModel: SeatSelectionViewModel
 ){
     val places by seatSelectionViewModel.places.collectAsState()
-    val selectedRow by seatSelectionViewModel.selectedRow.collectAsState()
-    val selectedSeat by seatSelectionViewModel.selectedSeat.collectAsState()
+    val selectedRows by seatSelectionViewModel.selectedRows.collectAsState()
+    val selectedSeats by seatSelectionViewModel.selectedSeats.collectAsState()
 
     Column(modifier = Modifier.fillMaxSize()) {
         Text(
@@ -34,10 +34,13 @@ fun SeatSelectionScreen(
 
         ContentComponent(
             seats = places,
-            selectedRow = selectedRow,
-            selectedSeat = selectedSeat,
+            selectedRows = selectedRows,
+            selectedSeats = selectedSeats,
             onRowSelected = seatSelectionViewModel::selectRow,
-            onSeatSelected = seatSelectionViewModel::selectSeat
+            onSeatSelected = seatSelectionViewModel::selectSeat,
+            onAddTicket = seatSelectionViewModel::addTicket,
+            onRemoveTicket = seatSelectionViewModel::removeTicket,
+            onContinueBooking = seatSelectionViewModel::continueBooking
         )
     }
 
