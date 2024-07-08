@@ -15,6 +15,7 @@ class SeatSelectionViewModel(
     private val router: SeatSelectionRouter
 ): ViewModel() {
 
+    // TODO replace this fake data with good data from previous screen
     private val _places = MutableStateFlow(
         listOf(
             listOf(PlaceItem(10, "Regular"), PlaceItem(12, "VIP")),
