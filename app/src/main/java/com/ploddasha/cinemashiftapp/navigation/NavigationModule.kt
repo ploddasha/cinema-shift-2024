@@ -7,7 +7,9 @@ import com.ploddasha.cinemashiftapp.navigation.featurerotuer.FilmPosterRouterImp
 import com.ploddasha.cinemashiftapp.navigation.featurerotuer.MainRouterImpl
 import com.ploddasha.cinemashiftapp.navigation.featurerotuer.ScheduleRouterImpl
 import com.ploddasha.cinemashiftapp.navigation.featurerotuer.FilmRouterImpl
+import com.ploddasha.cinemashiftapp.navigation.featurerotuer.SeatSelectionRouterImpl
 import com.ploddasha.cinemashiftapp.schedule.presentation.ScheduleRouter
+import com.ploddasha.cinemashiftapp.seatselection.presentation.SeatSelectionRouter
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.binds
 import org.koin.dsl.bind
@@ -20,6 +22,6 @@ val navigationModule = module {
     singleOf(::FilmPosterRouterImpl) bind FilmPosterRouter::class
     singleOf(::FilmRouterImpl) bind FilmRouter::class
     singleOf(::ScheduleRouterImpl) bind ScheduleRouter::class
-
+    singleOf(::SeatSelectionRouterImpl) bind SeatSelectionRouter::class
 
 }

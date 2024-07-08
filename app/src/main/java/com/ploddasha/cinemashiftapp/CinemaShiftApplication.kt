@@ -6,6 +6,7 @@ import com.ploddasha.cinemashiftapp.main.di.mainModule
 import com.ploddasha.cinemashiftapp.navigation.navigationModule
 import com.ploddasha.cinemashiftapp.poster.di.filmPosterModule
 import com.ploddasha.cinemashiftapp.schedule.di.scheduleViewModel
+import com.ploddasha.cinemashiftapp.seatselection.di.seatSelectionViewModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -25,7 +26,8 @@ class CinemaShiftApplication : Application() {
                 mainModule,
                 filmPosterModule,
                 filmViewModel,
-                scheduleViewModel
+                scheduleViewModel,
+                seatSelectionViewModule
             )
         }
     }

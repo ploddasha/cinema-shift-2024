@@ -10,6 +10,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -24,6 +27,7 @@ fun ScheduleScreen(
     scheduleViewModel: ScheduleViewModel
 ){
     val scheduleState by scheduleViewModel.state.collectAsState()
+
 
     LaunchedEffect(Unit) {
         scheduleViewModel.loadSchedule()
@@ -49,8 +53,10 @@ fun ScheduleScreen(
 
             is ScheduleState.Content -> {
                 ContentComponent(
-                    schedules = state.schedule
-                )
+                    schedules = state.schedule,
+                    onDateAndTimeSelected = scheduleViewModel::setDateAndTime,
+                    onContinue = scheduleViewModel::openSeatSelection
+                    )
 
             }
         }

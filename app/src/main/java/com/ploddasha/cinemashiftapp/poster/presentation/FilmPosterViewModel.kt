@@ -34,7 +34,7 @@ class FilmPosterViewModel(
     }
 
 
-    fun openRouter(filmId: String) {
+    fun openFilm(filmId: String) {
         router.openFilm(filmId)
     }
 }

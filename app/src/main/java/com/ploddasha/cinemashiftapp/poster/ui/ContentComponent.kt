@@ -53,7 +53,6 @@ private fun FilmItemView(
             .clickable(onClick = onItemClicked)
             .padding(vertical = 8.dp, horizontal = 16.dp)
     ) {
-        //Image
         FilmImageCard(image = item.img)
         Spacer(modifier = Modifier.height(8.dp))
         Text(

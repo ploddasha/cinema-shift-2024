@@ -35,6 +35,8 @@ import com.ploddasha.cinemashiftapp.poster.FilmPosterRoute
 import com.ploddasha.cinemashiftapp.poster.ui.FilmPosterScreen
 import com.ploddasha.cinemashiftapp.schedule.ScheduleRoute
 import com.ploddasha.cinemashiftapp.schedule.ui.ScheduleScreen
+import com.ploddasha.cinemashiftapp.seatselection.SeatSelectionRoute
+import com.ploddasha.cinemashiftapp.seatselection.ui.SeatSelectionScreen
 import org.koin.androidx.compose.koinViewModel
 import org.koin.compose.koinInject
 import org.koin.core.parameter.parametersOf
@@ -84,6 +86,12 @@ fun MainScreen() {
                     val destination = it.toRoute<ScheduleRoute>()
                     ScheduleScreen(
                         scheduleViewModel = koinViewModel { parametersOf(destination.filmId) },
+                    )
+                }
+                animatedComposable<SeatSelectionRoute> {
+                    val destination = it.toRoute<SeatSelectionRoute>()
+                    SeatSelectionScreen(
+                        seatSelectionViewModel = koinViewModel { parametersOf(destination.filmId) },
                     )
                 }
             }
