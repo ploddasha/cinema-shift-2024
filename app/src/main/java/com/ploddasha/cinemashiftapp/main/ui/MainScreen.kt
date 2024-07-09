@@ -26,11 +26,15 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.ploddasha.cinemashiftapp.R
+import com.ploddasha.cinemashiftapp.confirmation.ConfirmationRoute
+import com.ploddasha.cinemashiftapp.confirmation.ui.ConfirmationScreen
 import com.ploddasha.cinemashiftapp.film.FilmRoute
 import com.ploddasha.cinemashiftapp.film.ui.FilmScreen
 import com.ploddasha.cinemashiftapp.main.presentation.MainViewModel
 import com.ploddasha.cinemashiftapp.main.presentation.NavigationOption
 import com.ploddasha.cinemashiftapp.navigation.NavControllerHolder
+import com.ploddasha.cinemashiftapp.personinput.PersonInputRoute
+import com.ploddasha.cinemashiftapp.personinput.ui.PersonInputScreen
 import com.ploddasha.cinemashiftapp.poster.FilmPosterRoute
 import com.ploddasha.cinemashiftapp.poster.ui.FilmPosterScreen
 import com.ploddasha.cinemashiftapp.schedule.ScheduleRoute
@@ -92,6 +96,18 @@ fun MainScreen() {
                     val destination = it.toRoute<SeatSelectionRoute>()
                     SeatSelectionScreen(
                         seatSelectionViewModel = koinViewModel { parametersOf(destination.filmId) },
+                    )
+                }
+                animatedComposable<ConfirmationRoute> {
+                    val destination = it.toRoute<ConfirmationRoute>()
+                    ConfirmationScreen(
+                        confirmationViewModel = koinViewModel { parametersOf(destination.filmId) },
+                    )
+                }
+                animatedComposable<PersonInputRoute> {
+                    val destination = it.toRoute<PersonInputRoute>()
+                    PersonInputScreen(
+                        personInputViewModel = koinViewModel { parametersOf(destination.filmId) },
                     )
                 }
             }

@@ -58,6 +58,7 @@ class SeatSelectionViewModel(
     }
 
     fun continueBooking() {
+        router.openConfirmation(filmId)
     }
 
 
