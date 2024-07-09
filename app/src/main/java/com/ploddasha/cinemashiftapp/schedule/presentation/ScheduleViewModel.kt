@@ -2,9 +2,9 @@ package com.ploddasha.cinemashiftapp.schedule.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ploddasha.cinemashiftapp.common.presentation.ScheduleUiState
-import com.ploddasha.cinemashiftapp.common.presentation.Seance
-import com.ploddasha.cinemashiftapp.common.presentation.SelectedData
+import com.ploddasha.cinemashiftapp.common.domain.entity.selecteddata.ScheduleUiState
+import com.ploddasha.cinemashiftapp.common.domain.entity.selecteddata.Seance
+import com.ploddasha.cinemashiftapp.common.domain.entity.selecteddata.SelectedData
 import com.ploddasha.cinemashiftapp.schedule.domain.usecase.GetScheduleUseCase
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.MutableStateFlow

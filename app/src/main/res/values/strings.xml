@@ -22,5 +22,8 @@
     <string name="add_ticket">Еще билет</string>
     <string name="ticket_info">Билет: ряд %1$d, место %2$d</string>
     <string name="delete_ticket">Удалить билет</string>
+    <string name="confirmation_title">Выбор места. Подтверждение</string>
+    <string name="date_and_time">Дата и время</string>
+    <string name="seats">Места</string>
 
 </resources>

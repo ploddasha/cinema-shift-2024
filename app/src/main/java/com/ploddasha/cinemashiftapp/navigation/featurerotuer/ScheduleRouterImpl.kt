@@ -1,6 +1,5 @@
 package com.ploddasha.cinemashiftapp.navigation.featurerotuer
 
-import com.ploddasha.cinemashiftapp.common.presentation.SelectedData
 import com.ploddasha.cinemashiftapp.navigation.GlobalRouter
 import com.ploddasha.cinemashiftapp.schedule.presentation.ScheduleRouter
 import com.ploddasha.cinemashiftapp.seatselection.SeatSelectionRoute
