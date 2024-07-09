@@ -31,5 +31,9 @@
     <string name="invalid_lastname_message">Некорректный формат</string>
     <string name="phone_label">Номер телефона</string>
     <string name="invalid_phone_message">Номер телефона должен быть длиной от 10 до 15 символов</string>
+    <string name="invalid_firstname_message">Имя не должно содержать несколько спец. символов подряд</string>
+    <string name="firstname">Имя</string>
+    <string name="fathername">Отчество</string>
+    <string name="invalid_fathername_message">Отчество должно быть длиной от 0 до 60 символов</string>
 
 </resources>

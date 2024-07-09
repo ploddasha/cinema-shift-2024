@@ -7,5 +7,6 @@ data class PersonInputUiState(
     val phone: String = "",
     val isFirstnameValid: Boolean = true,
     val isLastnameValid: Boolean = true,
+    val isFatherNameValid: Boolean = true,
     val isPhoneValid: Boolean = true
 )

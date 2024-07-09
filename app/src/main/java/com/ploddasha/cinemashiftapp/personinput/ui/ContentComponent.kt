@@ -33,6 +33,12 @@ fun ContentComponent(
         LastnameInputComponent(
             personInputViewModel = personInputViewModel
         )
+        FirstnameInputComponent(
+            personInputViewModel = personInputViewModel
+        )
+        FatherNameInputComponent(
+            personInputViewModel = personInputViewModel
+        )
         PhoneInputComponent(
             personInputViewModel = personInputViewModel
         )

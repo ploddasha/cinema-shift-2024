@@ -17,7 +17,8 @@ class PersonInputViewModel(
     val uiState: StateFlow<PersonInputUiState> = _uiState.asStateFlow()
 
     fun updateFirstname(firstname: String) {
-        _uiState.update { it.copy(firstname = firstname, isFirstnameValid = firstname.isNotBlank()) }
+        val isValid = validateName(firstname)
+        _uiState.update { it.copy(firstname = firstname, isFirstnameValid = isValid) }
     }
 
     fun updateLastname(lastname: String) {
@@ -26,7 +27,7 @@ class PersonInputViewModel(
     }
 
     fun updateFatherName(fatherName: String) {
-        _uiState.update { it.copy(fatherName = fatherName) }
+        _uiState.update { it.copy(fatherName = fatherName, isFatherNameValid = validateFatherName(fatherName)) }
     }
 
     fun updatePhone(phone: String) {
@@ -51,5 +52,13 @@ class PersonInputViewModel(
         return lastname.matches(regex)
     }
 
+    private fun validateName(name: String): Boolean {
+        val regex = Regex("^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я'\\-\\s]*(?<!['\\-\\s])$")
+        return regex.matches(name) && !name.contains(Regex("['\\-\\s`]{2,}"))
+    }
+
+    private fun validateFatherName(fatherName: String): Boolean {
+        return fatherName.length <= 60
+    }
 
 }
