@@ -9,7 +9,9 @@ fun PersonInputScreen(
     personInputViewModel: PersonInputViewModel
 ){
     Column {
-        ContentComponent()
+        ContentComponent(
+            personInputViewModel = personInputViewModel
+        )
     }
 
 }

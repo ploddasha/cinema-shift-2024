@@ -25,5 +25,11 @@
     <string name="confirmation_title">Выбор места. Подтверждение</string>
     <string name="date_and_time">Дата и время</string>
     <string name="seats">Места</string>
+    <string name="your_data">Ваши данные</string>
+    <string name="field_is_required_error">Поле является обязательным</string>
+    <string name="lastname_label">Фамилия</string>
+    <string name="invalid_lastname_message">Некорректный формат</string>
+    <string name="phone_label">Номер телефона</string>
+    <string name="invalid_phone_message">Номер телефона должен быть длиной от 10 до 15 символов</string>
 
 </resources>
