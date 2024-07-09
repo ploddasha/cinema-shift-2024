@@ -1,6 +1,6 @@
 package com.ploddasha.cinemashiftapp.seatselection.presentation
 
-import com.ploddasha.cinemashiftapp.common.presentation.SelectedData
+import com.ploddasha.cinemashiftapp.common.domain.entity.selecteddata.SelectedData
 
 
 interface SeatSelectionState {

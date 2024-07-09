@@ -2,8 +2,6 @@ package com.ploddasha.cinemashiftapp.seatselection.presentation
 
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.ploddasha.cinemashiftapp.common.presentation.SelectedData
 import com.ploddasha.cinemashiftapp.schedule.domain.entity.PlaceItem
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -58,6 +56,7 @@ class SeatSelectionViewModel(
     }
 
     fun continueBooking() {
+        router.openConfirmation(filmId)
     }
 
 

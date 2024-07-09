@@ -1,4 +1,4 @@
-package com.ploddasha.cinemashiftapp.poster.ui
+package com.ploddasha.cinemashiftapp.common.ui
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
@@ -14,7 +14,7 @@ import com.ploddasha.cinemashiftapp.R
 fun FilmImageCard(image: String, modifier: Modifier = Modifier) {
     AsyncImage(
         model = ImageRequest.Builder(context = LocalContext.current)
-            .data("https://shift-backend.onrender.com" + image)
+            .data(image)
             .crossfade(true)
             .build(),
         contentDescription = stringResource(R.string.film_image),

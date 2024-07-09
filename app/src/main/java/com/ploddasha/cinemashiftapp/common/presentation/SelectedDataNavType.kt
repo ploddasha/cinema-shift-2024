@@ -1,8 +1,7 @@
 package com.ploddasha.cinemashiftapp.common.presentation
 
 import androidx.navigation.NavType
-import com.ploddasha.cinemashiftapp.common.presentation.SelectedData
-import kotlinx.serialization.decodeFromString
+import com.ploddasha.cinemashiftapp.common.domain.entity.selecteddata.SelectedData
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 

@@ -25,18 +25,21 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.ploddasha.cinemashiftapp.R
+import com.ploddasha.cinemashiftapp.common.ui.FilmImageCard
 import com.ploddasha.cinemashiftapp.poster.domain.entity.FilmItem
 
 @Composable
 fun ContentComponent(
     films: List<FilmItem>,
-    onItemClicked: (filmId: String) -> Unit
+    onItemClicked: (filmId: String) -> Unit,
+    backendAddress: String
 ) {
     LazyColumn(modifier = Modifier.fillMaxHeight()) {
         items(films) { film ->
             FilmItemView(
                 film,
-                onItemClicked = { onItemClicked(film.id) }
+                onItemClicked = { onItemClicked(film.id) },
+                backendAddress = backendAddress
             )
         }
     }
@@ -45,7 +48,8 @@ fun ContentComponent(
 @Composable
 private fun FilmItemView(
     item: FilmItem,
-    onItemClicked: () -> Unit
+    onItemClicked: () -> Unit,
+    backendAddress: String
 ) {
     Column (
         Modifier
@@ -53,7 +57,7 @@ private fun FilmItemView(
             .clickable(onClick = onItemClicked)
             .padding(vertical = 8.dp, horizontal = 16.dp)
     ) {
-        FilmImageCard(image = item.img)
+        FilmImageCard(image = backendAddress + item.img)
         Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = "${item.name} (${item.ageRating})",

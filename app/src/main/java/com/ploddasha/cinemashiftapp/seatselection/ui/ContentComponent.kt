@@ -88,7 +88,7 @@ fun ContentComponent(
             onClick = { onAddTicket() },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 8.dp, horizontal = 16.dp)
+                .padding(vertical = 8.dp)
         ) {
             Text(text = stringResource(R.string.add_ticket))
         }
@@ -96,7 +96,7 @@ fun ContentComponent(
             onClick = { onContinueBooking() },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 8.dp, horizontal = 16.dp)
+                .padding(vertical = 8.dp)
         ) {
             Text(text = stringResource(R.string.continue_button))
         }

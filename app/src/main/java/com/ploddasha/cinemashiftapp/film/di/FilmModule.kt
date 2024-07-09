@@ -21,6 +21,6 @@ val filmViewModel = module {
     factoryOf(::GetFilmUseCase)
 
     viewModel {(filmId: String) ->
-        FilmViewModel(filmId, get(), get())
+        FilmViewModel(filmId, get(), get(), get())
     }
 }

@@ -47,7 +47,8 @@ fun FilmPosterScreen(
 
             is FilmPosterState.Content -> ContentComponent(
                 films = state.films,
-                onItemClicked = filmPosterViewModel::openFilm
+                onItemClicked = filmPosterViewModel::openFilm,
+                backendAddress = filmPosterViewModel.getBackendAddress()
             )
         }
     }

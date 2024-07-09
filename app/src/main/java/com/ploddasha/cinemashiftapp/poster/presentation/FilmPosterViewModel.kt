@@ -10,7 +10,8 @@ import kotlinx.coroutines.launch
 
 class FilmPosterViewModel(
     private val getFilmPosterUseCase: GetFilmPosterUseCase,
-    private val router: FilmPosterRouter
+    private val router: FilmPosterRouter,
+    private val backendAddress: String
 ): ViewModel() {
     private val _state = MutableStateFlow<FilmPosterState>(FilmPosterState.Initial)
     val state: StateFlow<FilmPosterState> = _state
@@ -33,6 +34,10 @@ class FilmPosterViewModel(
         }
     }
 
+
+    fun getBackendAddress(): String {
+        return backendAddress
+    }
 
     fun openFilm(filmId: String) {
         router.openFilm(filmId)

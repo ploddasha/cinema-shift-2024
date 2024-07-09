@@ -1,11 +1,13 @@
 package com.ploddasha.cinemashiftapp.poster.di
 
+import com.ploddasha.cinemashiftapp.film.presentation.FilmViewModel
 import com.ploddasha.cinemashiftapp.poster.domain.GetFilmPosterUseCase
 import com.ploddasha.cinemashiftapp.poster.data.network.FilmPosterApi
 import com.ploddasha.cinemashiftapp.poster.data.converter.FilmItemConverter
 import com.ploddasha.cinemashiftapp.poster.domain.repository.FilmPosterRepository
 import com.ploddasha.cinemashiftapp.poster.data.repository.FilmPosterRepositoryImpl
 import com.ploddasha.cinemashiftapp.poster.presentation.FilmPosterViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.singleOf
@@ -20,5 +22,7 @@ val filmPosterModule = module {
 
     factoryOf(::GetFilmPosterUseCase)
 
-    viewModelOf(::FilmPosterViewModel)
+    viewModel {
+        FilmPosterViewModel(get(), get(), get())
+    }
 }
