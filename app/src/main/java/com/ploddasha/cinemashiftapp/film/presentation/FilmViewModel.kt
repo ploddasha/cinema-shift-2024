@@ -1,5 +1,6 @@
 package com.ploddasha.cinemashiftapp.film.presentation
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ploddasha.cinemashiftapp.film.domain.usecase.GetFilmUseCase
@@ -12,6 +13,7 @@ class FilmViewModel(
     private val filmId: String,
     private val getFilmUseCase: GetFilmUseCase,
     private val router: FilmRouter,
+    private val backendAddress: String
 ) : ViewModel() {
 
     private val _state = MutableStateFlow<FilmState>(FilmState.Initial)
@@ -34,6 +36,10 @@ class FilmViewModel(
                 _state.value = FilmState.Failure(ex.message)
             }
         }
+    }
+
+    fun getBackendAddress(): String {
+        return backendAddress
     }
 
     fun goBack() {

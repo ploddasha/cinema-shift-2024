@@ -1,8 +1,6 @@
 package com.ploddasha.cinemashiftapp.film.ui
 
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,13 +16,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.ploddasha.cinemashiftapp.R
+import com.ploddasha.cinemashiftapp.common.ui.FilmImageCard
 import com.ploddasha.cinemashiftapp.film.domain.entity.Film
 
 
 @Composable
 fun ContentComponent(
     film: Film,
-    onItemClicked: (filmId: String) -> Unit
+    onItemClicked: (filmId: String) -> Unit,
+    backendAddress: String
 ) {
     LazyColumn(
         modifier = Modifier
@@ -33,7 +33,7 @@ fun ContentComponent(
             .padding(vertical = 8.dp, horizontal = 16.dp)
     ) {
         item {
-            FilmImageCard(image = film.img)
+            FilmImageCard(image = backendAddress + film.img)
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = "${film.name} (${film.ageRating})",

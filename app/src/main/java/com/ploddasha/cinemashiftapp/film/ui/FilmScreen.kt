@@ -49,7 +49,8 @@ fun FilmScreen(
                 if (state.film != null) {
                     ContentComponent(
                         film = state.film,
-                        onItemClicked = filmViewModel::openSchedule
+                        onItemClicked = filmViewModel::openSchedule,
+                        backendAddress = filmViewModel.getBackendAddress()
                     )
                 } else {
                     ErrorComponent(

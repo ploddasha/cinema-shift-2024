@@ -1,6 +1,7 @@
 package com.ploddasha.cinemashiftapp
 
 import android.app.Application
+import com.ploddasha.cinemashiftapp.common.di.backendAddressModule
 import com.ploddasha.cinemashiftapp.confirmation.di.confirmationModule
 import com.ploddasha.cinemashiftapp.film.di.filmViewModel
 import com.ploddasha.cinemashiftapp.main.di.mainModule
@@ -31,7 +32,8 @@ class CinemaShiftApplication : Application() {
                 scheduleViewModel,
                 seatSelectionViewModule,
                 confirmationModule,
-                personInputModule
+                personInputModule,
+                backendAddressModule
             )
         }
     }
